@@ -43,6 +43,6 @@ make project
 или файла infra/settings.py
 CoinGecko можно использовать без ключа.
 
-4. asciinema
+asciinema
 
 [![asciicast](https://asciinema.org/a/4gsBJZFC45Ie7tgc9vqUewc8c)](https://asciinema.org/a/4gsBJZFC45Ie7tgc9vqUewc8c)
