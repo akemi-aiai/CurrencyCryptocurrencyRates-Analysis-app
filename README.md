@@ -1,3 +1,15 @@
+CLI Application for Currency & Cryptocurrency Rates Analysis
+---
+A command-line application for fetching and analyzing fiat and cryptocurrency exchange rates.
+
+## Project Idea
+
+The application allows you to:
+- fetch up-to-date fiat and cryptocurrency rates (via CoinGecko and ExchangeRate API);
+- store historical exchange rate data;
+- manage a virtual currency portfolio (buy/sell operations);
+- work in offline mode using cached data with TTL support.
+
 CLI-приложение для получения и анализа валютных и криптовалютных курсов.
 
 ---
