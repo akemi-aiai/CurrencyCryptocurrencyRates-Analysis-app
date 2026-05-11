@@ -8,20 +8,18 @@ from typing import Dict, Tuple
 class ParserConfig:
     """Конфигурация парсер-сервиса"""
 
-    # API ключи (сначала из переменных окружения, если нет — из settings)
     try:
         from ..infra.settings import settings
         _settings = settings
     except ImportError:
-        # Если settings недоступен, используем значения по умолчанию
         class DefaultSettings:
-            exchangerate_api_key = "935b702352e0c8d731dae5e3"
+            exchangerate_api_key = ""
             coingecko_api_key = ""
         _settings = DefaultSettings()
 
     EXCHANGERATE_API_KEY: str = os.getenv(
         "EXCHANGERATE_API_KEY",
-        getattr(_settings, 'exchangerate_api_key', '935b702352e0c8d731dae5e3')
+        getattr(_settings, 'exchangerate_api_key', '')
     )
     COINGECKO_API_KEY: str = os.getenv(
         "COINGECKO_API_KEY",
@@ -29,8 +27,8 @@ class ParserConfig:
     )
 
     # Эндпоинты
-    COINGECKO_URL: str = "https://api.coingecko.com/api/v3/simple/price"
-    EXCHANGERATE_API_URL: str = "https://v6.exchangerate-api.com/v6"
+    COINGECKO_URL: str = ""
+    EXCHANGERATE_API_URL: str = ""
 
     # Списки валют
     BASE_CURRENCY: str = "USD"
