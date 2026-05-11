@@ -35,7 +35,6 @@ class SettingsLoader:
             "log_file": "logs/valutatrade.log",
             "max_log_size_mb": 10,
             "backup_count": 5,
-            # Новые настройки для парсер-сервиса
             "parser_update_interval": 5,
             "exchangerate_api_key": "935b702352e0c8d731dae5e3",
             "coingecko_api_key": "",
@@ -47,20 +46,17 @@ class SettingsLoader:
                 with open("pyproject.toml", "r") as f:
                     pyproject_data = toml.load(f)
 
-                # Извлекаем настройки из секции [tool.valutatrade]
                 tool_settings = pyproject_data.get("tool", {}).get("valutatrade", {})
                 default_settings.update(tool_settings)
         except Exception as e:
             print(f"Warning: Could not load settings from pyproject.toml: {e}")
 
-        # Переопределяем настройки переменными окружения
         env_mappings = {
             "DATA_DIR": "data_directory",
             "RATES_TTL": "rates_ttl_seconds",
             "DEFAULT_CURRENCY": "default_base_currency",
             "LOG_LEVEL": "log_level",
             "LOG_FILE": "log_file",
-            # Новые переменные для парсер-сервиса
             "PARSER_UPDATE_INTERVAL": "parser_update_interval",
             "EXCHANGERATE_API_KEY": "exchangerate_api_key",
             "COINGECKO_API_KEY": "coingecko_api_key",
@@ -108,5 +104,4 @@ class SettingsLoader:
         return key in self._settings
 
 
-# Глобальный экземпляр синглтона
 settings = SettingsLoader()
