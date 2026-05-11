@@ -36,7 +36,7 @@ class SettingsLoader:
             "max_log_size_mb": 10,
             "backup_count": 5,
             "parser_update_interval": 5,
-            "exchangerate_api_key": "935b702352e0c8d731dae5e3",
+            "exchangerate_api_key": "",
             "coingecko_api_key": "",
         }
 
@@ -65,7 +65,6 @@ class SettingsLoader:
         for env_var, setting_key in env_mappings.items():
             env_value = os.getenv(env_var)
             if env_value:
-                # Преобразуем типы данных
                 if setting_key in ["rates_ttl_seconds", "parser_update_interval"]:
                     default_settings[setting_key] = int(env_value)
                 else:
