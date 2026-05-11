@@ -217,7 +217,6 @@ class PortfolioManager:
         if amount <= 0:
             raise ValidationError("Сумма продажи должна быть положительной")
 
-    # ЗАГРУЖАЕМ СВЕЖИЕ ДАННЫЕ - ИСПРАВЛЕНИЕ
         portfolios = self._load_portfolios()
         portfolio = None
         for p in portfolios:
@@ -250,7 +249,6 @@ class PortfolioManager:
 
         revenue_usd = amount * rate
 
-    # СОХРАНЯЕМ ИЗМЕНЕНИЯ - ИСПРАВЛЕНИЕ
         for i, p in enumerate(portfolios):
             if p.user_id == user_id:
                 portfolios[i] = portfolio
